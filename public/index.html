@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="module" src="./routes.js"></script>
+
+    <title>API Interaction Demo</title>
+  </head>
+  <body class="container">
+    <!-- Container -->
+    <div
+      class="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg"
+    >
+      <!-- Header -->
+      <div class="flex justify-center items-center">
+        <img
+          src="logo.png"
+          alt="Logo"
+          class="h-32"
+          style="border-radius: 10%"
+        />
+      </div>
+
+      <h1 class="text-3xl font-bold text-center mb-6"></h1>
+
+      <!-- Subscribe Section -->
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold mb-2">Subscribe to a Channel</h2>
+        <div class="flex space-x-2">
+          <input
+            id="subscribeChannel"
+            type="text"
+            placeholder="Enter channel name..."
+            class="border border-gray-700 bg-gray-800 text-white p-2 rounded flex-grow focus:ring focus:ring-blue-500"
+          />
+          <button
+            id="subscribeBtn"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow-md"
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+
+      <!-- Publish Section -->
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold mb-2">Publish to a channel</h2>
+        <div class="flex space-x-2">
+          <input
+            id="publishChannel"
+            type="text"
+            placeholder="Channel Name"
+            class="border border-gray-700 bg-gray-800 text-white p-2 rounded focus:ring focus:ring-green-500"
+          />
+          <input
+            id="publishData"
+            type="text"
+            placeholder="Type a message..."
+            class="border border-gray-700 bg-gray-800 text-white w-1 p-2 rounded flex-grow focus:ring focus:ring-green-500"
+          />
+        </div>
+        <button
+          id="publishBtn"
+          class="bg-green-500 m-1 mb-2 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow-md"
+        >
+          Send
+        </button>
+      </div>
+
+      <!-- Message Area -->
+      <div class="mb-6">
+        <div class="flex justify-between items-center mb-2">
+          <h2 class="text-lg font-semibold">Messages</h2>
+          <button
+            id="clearMessagesBtn"
+            class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded"
+          >
+            Clear
+          </button>
+        </div>
+        <div
+          id="messagesArea"
+          class="h-64 bg-gray-800 border border-gray-700 rounded p-4 overflow-y-auto flex flex-col space-y-2"
+        ></div>
+      </div>
+
+      <!-- Unsubscribe Section -->
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold mb-2">Unsubscribe</h2>
+        <div class="flex space-x-2">
+          <input
+            id="unsubscribeChannel"
+            type="text"
+            placeholder="Channel Name"
+            class="border border-gray-700 bg-gray-800 text-white p-2 rounded flex-grow focus:ring focus:ring-yellow-500"
+          />
+          <button
+            id="unsubscribeBtn"
+            class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded shadow-md"
+          >
+            Unsubscribe
+          </button>
+        </div>
+      </div>
+
+      <!-- Disconnect Section -->
+      <div class="mb-6 text-center">
+        <button
+          id="disconnectBtn"
+          class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded shadow-md"
+        >
+          Disconnect
+        </button>
+      </div>
+
+      <!-- Console Area -->
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <h2 class="text-lg font-semibold">Console Log</h2>
+          <button
+            id="clearConsoleBtn"
+            class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded"
+          >
+            Clear
+          </button>
+        </div>
+        <div
+          id="consoleArea"
+          class="h-40 bg-gray-800 text-gray-300 border border-gray-700 rounded p-4 overflow-y-auto"
+        >
+          <!-- Console logs will appear here -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+
+    <!-- Socket.IO JavaScript -->
+  </body>
+</html>
