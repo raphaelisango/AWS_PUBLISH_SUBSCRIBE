@@ -4,7 +4,7 @@ class SockettyServer {
   constructor(server) {
     this.io = new Server(server, {
       cors: {
-        origin: "http://127.0.0.1:5500", // The origin you want to allow
+        origin: "*", // The origin you want to allow
         methods: ["GET", "POST"],
       },
     });
