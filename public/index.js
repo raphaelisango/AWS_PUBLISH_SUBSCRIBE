@@ -1,7 +1,7 @@
 import socketty from "./routes.js"; // Import the Socketty class
 
 // Connect to the WebSocket server
-socketty.connect("http://127.0.0.1:3300", "Connected to the broker server!");
+socketty.connect("https://3.20.225.11:3300", "Connected to the broker server!");
 socketty.acknowledgement = true;
 
 //const channels = {}; // Stores subscriptions for channels
